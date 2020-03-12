@@ -158,9 +158,9 @@
 		4231CF5B241A1D4900899525 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4231CF5C241A1E2D00899525 /* Controller */,
 				4231CF5D241A1E2D00899525 /* Model */,
 				4231CF5E241A1E2D00899525 /* View */,
+				4231CF5C241A1E2D00899525 /* Controller */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -191,7 +191,9 @@
 		4231CF5F241A1E8100899525 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4231CF6D241A28D100899525 /* Home.storyboard */,
+				4231CF7F241A3E3500899525 /* Model */,
+				4231CF7D241A3E3500899525 /* View */,
+				4231CF7E241A3E3500899525 /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -218,6 +220,28 @@
 				4231CF65241A283100899525 /* My.storyboard */,
 			);
 			path = My;
+			sourceTree = "<group>";
+		};
+		4231CF7D241A3E3500899525 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4231CF7E241A3E3500899525 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4231CF6D241A28D100899525 /* Home.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4231CF7F241A3E3500899525 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
