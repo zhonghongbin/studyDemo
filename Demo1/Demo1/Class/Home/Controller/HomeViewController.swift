@@ -8,8 +8,16 @@
 
 import UIKit
 
+private let kTitleViewH = 40
 class HomeViewController: UIViewController {
-
+    //闭包懒加载
+    private lazy var pageTitleView : PageTitleView = {
+        let titleFrame = CGRect(x: 0, y: kStatusBarH+kNavigationBarH, width: Int(kScreenW), height: kTitleViewH)
+        let titles = ["推荐","游戏","娱乐","趣玩"]
+        let titleView = PageTitleView(frame: titleFrame, titles: titles)
+        return titleView
+    }()
+    //系统回调函数
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,9 +27,11 @@ class HomeViewController: UIViewController {
 }
 //设置ui界面抽取方法，使viewDidLoad调用时更清晰
 extension HomeViewController{
+    
     private func setupUI(){
         //设置顶部导航栏
         setupNavigationBar()
+        view.addSubview(pageTitleView)
     }
     
     private func setupNavigationBar(){
@@ -41,4 +51,6 @@ extension HomeViewController{
         let qrcodeItem = UIBarButtonItem(imageName: "qrcode", leftPadding: -20, rightPadding: 0)
         navigationItem.rightBarButtonItems = [qrcodeItem,searchItem,historyItem]
     }
+    
+
 }
