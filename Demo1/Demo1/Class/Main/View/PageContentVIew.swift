@@ -8,14 +8,20 @@
 
 import UIKit
 
+protocol PageContentViewDelegate : class{
+    func pageContentView(contentView : PageContentView,progress : CGFloat,sourceIndex: Int ,targetIndex : Int)
+}
 private let cellID = "cellID"
 class PageContentView: UIView {
+    private var startOffetX :CGFloat = 0
+    weak var delegate : PageContentViewDelegate?
     private var childVcs : [UIViewController]
-    private var parentViewController : UIViewController
-    private lazy var collectionView :UICollectionView = {
+    //弱引用防止循环引用
+    private weak var parentViewController : UIViewController?
+    private lazy var collectionView :UICollectionView = {[weak self] in
         //创建layout
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = self.bounds.size
+        layout.itemSize = (self?.bounds.size)!
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
@@ -25,6 +31,8 @@ class PageContentView: UIView {
         //分页设置
         collectionView.isPagingEnabled = true
         collectionView.bounces = false
+        //获取协议
+        collectionView.delegate = self
         //绑定数据源
         collectionView.dataSource = self
         collectionView.scrollsToTop = false
@@ -33,7 +41,7 @@ class PageContentView: UIView {
         return collectionView
     }()
     
-    init(frame:CGRect,childVcs : [UIViewController],parentViewController : UIViewController){
+    init(frame:CGRect,childVcs : [UIViewController],parentViewController : UIViewController?){
         self.childVcs = childVcs
         self.parentViewController = parentViewController
         super.init(frame : frame)
@@ -50,7 +58,7 @@ extension PageContentView{
     private func setupUI(){
         for childVc in childVcs{
             //将所有子view控制器添加到父控制器中
-            parentViewController.addChild(childVc)
+            parentViewController?.addChild(childVc)
         }
         addSubview(collectionView)
         collectionView.frame = bounds
@@ -79,4 +87,47 @@ extension PageContentView : UICollectionViewDataSource{
     }
     
     
+}
+extension PageContentView{
+    func setCurrentIndex(currentIndex : Int) {
+        let offsetX = CGFloat(currentIndex) * collectionView.frame.width
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0),animated: false)
+    }
+}
+extension PageContentView : UICollectionViewDelegate{
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffetX = scrollView.contentOffset.x
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //滑动进度
+        var progress : CGFloat = 0
+        var sourceIndex = 0
+        var targetIndex = 0
+        //判断左滑还是右滑
+        let currentOffsetX = scrollView.contentOffset.x
+        let scrollViewW = scrollView.bounds.width
+        if(currentOffsetX > startOffetX){//左滑
+            //floor为取整
+            progress = currentOffsetX/scrollViewW - floor(currentOffsetX/scrollViewW)
+            
+            sourceIndex = Int(currentOffsetX/scrollViewW)
+            targetIndex = sourceIndex + 1
+            if targetIndex >= childVcs.count{
+                targetIndex = childVcs.count-1
+            }
+            if currentOffsetX - startOffetX == scrollViewW{
+                progress = 1
+                targetIndex = sourceIndex
+            }
+        }else{//右滑
+            progress = 1 - (currentOffsetX/scrollViewW - floor(currentOffsetX/scrollViewW))
+            targetIndex = Int(currentOffsetX/scrollViewW)
+            sourceIndex = targetIndex + 1
+            if sourceIndex >= childVcs.count{
+                sourceIndex = childVcs.count-1
+            }
+        }
+        //传递index给titleview
+        delegate?.pageContentView(contentView: self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+    }
 }

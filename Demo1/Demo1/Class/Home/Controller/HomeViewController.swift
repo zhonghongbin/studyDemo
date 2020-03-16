@@ -11,14 +11,15 @@ import UIKit
 private let kTitleViewH:CGFloat = 40
 class HomeViewController: UIViewController {
     //闭包懒加载
-    private lazy var pageTitleView : PageTitleView = {
+    private lazy var pageTitleView : PageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y: kStatusBarH+kNavigationBarH, width: kScreenW, height: kTitleViewH)
         let titles = ["推荐","游戏","娱乐","趣玩"]
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
+        titleView.delegate = self
         return titleView
-    }()
+        }()
     
-    private lazy var pageContentView : PageContentView = {
+    private lazy var pageContentView : PageContentView = {[weak self] in
         //确认内容frame
         let contentH : CGFloat = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH
         let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentH)
@@ -30,16 +31,17 @@ class HomeViewController: UIViewController {
             childVcs.append(vc)
         }
         let contentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentViewController: self)
+        contentView.delegate = self
         return contentView
-    }()
+        }()
     //系统回调函数
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
     }
-
-
+    
+    
 }
 //设置ui界面抽取方法，使viewDidLoad调用时更清晰
 extension HomeViewController{
@@ -71,5 +73,18 @@ extension HomeViewController{
         navigationItem.rightBarButtonItems = [qrcodeItem,searchItem,historyItem]
     }
     
+    
+}
 
+//遵守协议
+extension HomeViewController : PageTitleViewDelegate{
+    func pageTitleView(titleView: PageTitleView, selectedIndex index : Int) {
+        pageContentView.setCurrentIndex(currentIndex: index)
+    }
+}
+
+extension HomeViewController : PageContentViewDelegate{
+    func pageContentView(contentView: PageContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int){
+        pageTitleView.setTitleWithProgress(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+    }
 }
