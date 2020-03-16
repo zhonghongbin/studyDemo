@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kStatusBarH = 20
-let kNavigationBarH = 40
+let kStatusBarH :CGFloat = 20
+let kNavigationBarH : CGFloat = 40
 let kScreenW = UIScreen.main.bounds.width
 let kScreenH = UIScreen.main.bounds.height

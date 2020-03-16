@@ -11,9 +11,26 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var autoSizeScaleX: Float = 0
 
+    var autoSizeScaleY: Float = 0
+
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let screenWidth = UIScreen.main.bounds.size.width
+
+        let screenHeight = UIScreen.main.bounds.size.height
+        
+        if(screenHeight>480){
+            autoSizeScaleX = Float(screenWidth) / 320.0
+            autoSizeScaleY = Float(screenHeight) / 568.0
+        }else{
+            autoSizeScaleX = 1.0
+            autoSizeScaleY = 1.0
+        }
+
+
         //设置tabbar默认背景色
         UITabBar.appearance().tintColor = UIColor.orange
         return true

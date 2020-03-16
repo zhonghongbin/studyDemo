@@ -8,14 +8,29 @@
 
 import UIKit
 
-private let kTitleViewH = 40
+private let kTitleViewH:CGFloat = 40
 class HomeViewController: UIViewController {
     //闭包懒加载
     private lazy var pageTitleView : PageTitleView = {
-        let titleFrame = CGRect(x: 0, y: kStatusBarH+kNavigationBarH, width: Int(kScreenW), height: kTitleViewH)
+        let titleFrame = CGRect(x: 0, y: kStatusBarH+kNavigationBarH, width: kScreenW, height: kTitleViewH)
         let titles = ["推荐","游戏","娱乐","趣玩"]
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
         return titleView
+    }()
+    
+    private lazy var pageContentView : PageContentView = {
+        //确认内容frame
+        let contentH : CGFloat = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH
+        let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentH)
+        //确认所有子控制器
+        var childVcs = [UIViewController]()
+        for _ in 0..<4{
+            let vc = UIViewController()
+            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
+            childVcs.append(vc)
+        }
+        let contentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentViewController: self)
+        return contentView
     }()
     //系统回调函数
     override func viewDidLoad() {
@@ -23,6 +38,7 @@ class HomeViewController: UIViewController {
 
         setupUI()
     }
+
 
 }
 //设置ui界面抽取方法，使viewDidLoad调用时更清晰
@@ -32,6 +48,9 @@ extension HomeViewController{
         //设置顶部导航栏
         setupNavigationBar()
         view.addSubview(pageTitleView)
+        //添加contentview
+        view.addSubview(pageContentView)
+        pageContentView.backgroundColor = UIColor.purple
     }
     
     private func setupNavigationBar(){

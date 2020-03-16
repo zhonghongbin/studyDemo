@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="eoP-2E-R4h"/>
+                        <viewLayoutGuide key="safeArea" id="gsr-zC-0Vr"/>
                     </view>
                     <navigationItem key="navigationItem" id="bcp-1p-Xlp"/>
                 </viewController>
