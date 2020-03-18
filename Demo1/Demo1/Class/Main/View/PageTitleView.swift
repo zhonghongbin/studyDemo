@@ -11,6 +11,8 @@ import UIKit
 protocol PageTitleViewDelegate : class {
     func pageTitleView(titleView : PageTitleView ,selectedIndex index: Int)
 }
+private let normalColor : (CGFloat,CGFloat,CGFloat) = (85,85,85)
+private let selectedColor : (CGFloat,CGFloat,CGFloat) = (255,128,0)
 private let kScrollLineH :CGFloat = 6
 class PageTitleView: UIView {
     private var currentIndex : Int = 0
@@ -63,7 +65,7 @@ extension PageTitleView{
             label.text = title
             label.tag = index
             label.font = UIFont.systemFont(ofSize: 16.0)
-            label.textColor = UIColor.darkGray
+            label.textColor = UIColor(r: normalColor.0, g: normalColor.1, b: normalColor.2)
             label.textAlignment = .center
             
             let labelX : CGFloat = labelW * CGFloat(index)
@@ -106,8 +108,8 @@ extension PageTitleView{
         //获取之前label
         let oldLabel = titleLabels[currentIndex]
         //切换文字颜色
-        currentLabel.textColor = UIColor.orange
-        oldLabel.textColor = UIColor.darkText
+        currentLabel.textColor = UIColor(r: selectedColor.0, g: selectedColor.1, b: selectedColor.2)
+        oldLabel.textColor = UIColor(r: normalColor.0, g: normalColor.1, b: normalColor.2)
         currentIndex = currentLabel.tag
         //滚动条跟随点击滑动
         let scrollLineX = CGFloat(currentLabel.tag) * scrollLine.frame.width
@@ -125,12 +127,20 @@ extension PageTitleView{
         let sourceLabel = titleLabels[sourceIndex]
         let targetLabel = titleLabels[targetIndex]
         
+
+        
         //处理滑块逻辑
         let moveTotalX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
         //根据进度判断滑动了多少
         let moveX = moveTotalX * progress
         //源位置加上滑动距离得出line滑动了多少
         scrollLine.frame.origin.x = sourceLabel.frame.origin.x + moveX
+        //根据progress计算渐变颜色
+        let change = (selectedColor.0 - normalColor.0,selectedColor.1 - normalColor.1,selectedColor.2 - normalColor.2)
+        sourceLabel.textColor = UIColor(r: selectedColor.0 - change.0*progress, g: selectedColor.1 - change.1*progress, b: selectedColor.2-change.2*progress)
+        targetLabel.textColor = UIColor(r: normalColor.0 + change.0*progress, g: normalColor.1 + change.1*progress, b: normalColor.2 + change.2*progress)
+        //滚动后改变当前index
+        currentIndex = targetIndex
     }
 }
 

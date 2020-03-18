@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionViewNormalCell" customModule="Demo1" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="217" height="140"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="217" height="140"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="dota" translatesAutoresizingMaskIntoConstraints="NO" id="Wbd-qy-MCO">
+                        <rect key="frame" x="0.0" y="0.0" width="217.00000000000023" height="100"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="youxi" translatesAutoresizingMaskIntoConstraints="NO" id="2NJ-QE-A9f">
+                        <rect key="frame" x="0.0" y="115.5" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="oG9-yL-VbG"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="pYi-aq-iTJ"/>
+                            <constraint firstAttribute="width" constant="14" id="rKQ-Ch-R1j"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="dota2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOl-YG-Ne2">
+                        <rect key="frame" x="19" y="115" width="193" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Wbd-qy-MCO" secondAttribute="trailing" id="1y9-G6-j4F"/>
+                <constraint firstItem="Wbd-qy-MCO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2Hi-bc-DJ7"/>
+                <constraint firstItem="2NJ-QE-A9f" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5k1-oR-peJ"/>
+                <constraint firstAttribute="trailing" secondItem="Wbd-qy-MCO" secondAttribute="trailing" id="Ec3-fh-JYQ"/>
+                <constraint firstItem="Wbd-qy-MCO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HAc-2R-yX8"/>
+                <constraint firstAttribute="bottom" secondItem="MOl-YG-Ne2" secondAttribute="bottom" constant="10" id="P4u-8g-DdZ"/>
+                <constraint firstItem="Wbd-qy-MCO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PXR-I7-B3n"/>
+                <constraint firstItem="MOl-YG-Ne2" firstAttribute="top" secondItem="Wbd-qy-MCO" secondAttribute="bottom" id="SPB-cI-vOv"/>
+                <constraint firstAttribute="trailing" secondItem="MOl-YG-Ne2" secondAttribute="trailing" constant="5" id="XQl-i7-i1Y"/>
+                <constraint firstAttribute="trailing" secondItem="Wbd-qy-MCO" secondAttribute="trailing" id="aYh-sn-tmd"/>
+                <constraint firstItem="MOl-YG-Ne2" firstAttribute="top" secondItem="Wbd-qy-MCO" secondAttribute="bottom" constant="6" id="auu-8Z-WmS"/>
+                <constraint firstItem="MOl-YG-Ne2" firstAttribute="leading" secondItem="2NJ-QE-A9f" secondAttribute="trailing" constant="5" id="n34-VN-4qg"/>
+                <constraint firstItem="Wbd-qy-MCO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qLw-cJ-Vll"/>
+                <constraint firstItem="MOl-YG-Ne2" firstAttribute="centerY" secondItem="2NJ-QE-A9f" secondAttribute="centerY" id="z4v-uW-4ra"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="217" height="140"/>
+            <point key="canvasLocation" x="-34.057971014492757" y="31.473214285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="dota" width="850" height="478"/>
+        <image name="youxi" width="200" height="200"/>
+    </resources>
+</document>

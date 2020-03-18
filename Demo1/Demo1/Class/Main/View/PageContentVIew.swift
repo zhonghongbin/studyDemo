@@ -13,6 +13,8 @@ protocol PageContentViewDelegate : class{
 }
 private let cellID = "cellID"
 class PageContentView: UIView {
+    //是否禁用scroll标记
+    private var isForbidScroll :Bool = false
     private var startOffetX :CGFloat = 0
     weak var delegate : PageContentViewDelegate?
     private var childVcs : [UIViewController]
@@ -90,15 +92,20 @@ extension PageContentView : UICollectionViewDataSource{
 }
 extension PageContentView{
     func setCurrentIndex(currentIndex : Int) {
+        isForbidScroll = true
         let offsetX = CGFloat(currentIndex) * collectionView.frame.width
         collectionView.setContentOffset(CGPoint(x: offsetX, y: 0),animated: false)
     }
 }
 extension PageContentView : UICollectionViewDelegate{
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        //是否禁用scroll
+        isForbidScroll = false
         startOffetX = scrollView.contentOffset.x
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if isForbidScroll {return}
         //滑动进度
         var progress : CGFloat = 0
         var sourceIndex = 0
