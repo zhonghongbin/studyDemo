@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="dota" translatesAutoresizingMaskIntoConstraints="NO" id="Wbd-qy-MCO">
-                        <rect key="frame" x="0.0" y="0.0" width="217.00000000000023" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="217" height="100"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="5"/>
