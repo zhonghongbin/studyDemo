@@ -19,7 +19,7 @@ private let kNormalID  = "kNormalID"
 private let kPrettyID  = "kPrettyID"
 private let kHeaderID  = "kHeaderID"
 class RecommendViewController: UIViewController {
-    
+    private lazy var recommendVM : RecommendViewModel = RecommendViewModel()
     private lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: kItemW, height: kNormalItemH)
@@ -46,9 +46,7 @@ class RecommendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        NetworkTools.requestData(type: .GET, url: "http://httpbin.org/get") { (reponse) in
-            print(reponse)
-        }
+        recommendVM.requestData()
     }
     
 }
