@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CollectionHeaderView: UICollectionReusableView {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var titleTabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
     
+    var group : DetailData?{
+        didSet{
+            titleTabel.text=group?.tag_name
+            image.kf.setImage(with: URL(string: group?.icon_url ?? "youxi"))
+        }
+    }
 }

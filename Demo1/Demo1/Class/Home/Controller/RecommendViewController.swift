@@ -46,7 +46,7 @@ class RecommendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        recommendVM.requestData()
+        getHttp()
     }
     
 }
@@ -55,19 +55,21 @@ extension RecommendViewController{
         view.addSubview(collectionView)
     }
     private func getHttp(){
-        
+        recommendVM.requestData(){
+            self.collectionView.reloadData()
+        }
     }
 }
 
 extension RecommendViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 12
+        //获取data下detail组数量
+        return recommendVM.detail.count
     }
+    //每组下item数量
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            if section == 0 {
-            return 8
-            }
-            return 4
+        let group = recommendVM.detail[section]
+        return group.room_list!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -81,8 +83,11 @@ extension RecommendViewController : UICollectionViewDataSource,UICollectionViewD
 
         return cell
     }
+    //设置header
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderID, for: indexPath)
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderID, for: indexPath) as!CollectionHeaderView
+        headerView.group = recommendVM.detail[indexPath.section]
+        
         return headerView
     }
     

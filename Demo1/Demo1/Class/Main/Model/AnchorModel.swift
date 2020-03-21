@@ -20,11 +20,14 @@ struct AnchorModel {
 }
 struct DetailData {
     var tag_name : String?
+    var icon_url : String?
+    
     var room_list: [DataList]?
     
     
     init(jsonData:JSON) {
         tag_name = jsonData["tag_name"].stringValue
+        icon_url = jsonData["icon_url"].stringValue
         room_list = DataList.modelArray(jsonArray: jsonData["room_list"].arrayValue)
     }
     static func modelArray(jsonArray:[JSON]) -> [DetailData] {

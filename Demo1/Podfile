@@ -6,6 +6,7 @@ target 'Demo1' do
 
 pod 'Alamofire'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'Kingfisher'
   target 'Demo1Tests' do
     inherit! :search_paths
     # Pods for testing
