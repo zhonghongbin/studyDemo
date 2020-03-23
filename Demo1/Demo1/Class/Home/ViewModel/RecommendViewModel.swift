@@ -10,8 +10,10 @@ import UIKit
 import SwiftyJSON
 
 class RecommendViewModel{
-    lazy var detail : [DetailData] = [DetailData]()
-    private lazy var datalist : [DataList] = [DataList]()
+    var model:AnchorModel?
+    var cycleModel: CycleModel?
+//    lazy var detail : [DetailData] = [DetailData]()
+//    private lazy var datalist : [DataList] = [DataList]()
 }
 
 extension RecommendViewModel{
@@ -21,23 +23,27 @@ extension RecommendViewModel{
         //请求数据
         NetworkTools.requestData(type: .GET, url: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: ["limit":"4","offset" : "0","time":Date.getCurrentTime()]){(response) in
             let jsonData = JSON(response)
-            let model = AnchorModel(jsonData: jsonData)
-            guard let detail : [DetailData] =  model.data else{return}
-            for xxx in detail{
-                self.detail.append(xxx)
-                print(xxx.tag_name)
-                guard let roomlist : [DataList] =  xxx.room_list else {return}
-                for yyy in roomlist{
-                    self.datalist.append(yyy)
-                    print(yyy.room_id)
-                }
-
-            }
+            self.model = AnchorModel(jsonData: jsonData)
+//            guard let detail : [DetailData] =  self.model?.data else{return}
+//            for xxx in detail{
+//                self.detail.append(xxx)
+//                guard let roomlist : [DataList] =  xxx.room_list else {return}
+//                for yyy in roomlist{
+//                    self.datalist.append(yyy)
+//                }
+//            }
             dGroup.leave()
         }
         dGroup.notify(queue: .main) {
             finishCallback()
         }
 
+    }
+    func requestCycleData(finishCallback : @escaping()->()) {
+        NetworkTools.requestData(type: .GET, url: "http://www.douyutv.com/api/v1/slide/6",parameters: ["version" : "2.300"]) { (result) in
+            let jsonData = JSON(result)
+            self.cycleModel = CycleModel(jsonData: jsonData)
+            finishCallback()
+        }
     }
 }

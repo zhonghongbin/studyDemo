@@ -101,8 +101,13 @@ extension PageTitleView{
 extension PageTitleView{
     //时间需添加objc
     @objc private func titleLabelClick(tapGes : UITapGestureRecognizer){
+        
         //获取当前点击label ,as?转换
         guard let currentLabel = tapGes.view as? UILabel else{
+            return
+        }
+        //防止重复点击选中的titlelabel颜色问题
+        if currentLabel.tag == currentIndex {
             return
         }
         //获取之前label

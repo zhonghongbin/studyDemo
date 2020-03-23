@@ -8,11 +8,12 @@
 
 import UIKit
 
-class CollectionViewNormalCell: UICollectionViewCell {
+class CollectionViewNormalCell: CollectionBaseCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+
+    override var item : DataList?{
+        didSet{
+            super.item = item
+        }
     }
-
 }

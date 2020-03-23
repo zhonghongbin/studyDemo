@@ -43,10 +43,17 @@ struct DetailData {
 
 struct DataList {
     var room_id : String?
+    var room_src : String?
     var vertical_src:String?
+    var room_name:String?
+    var avatar_small : String?
+    
     init(jsonData:JSON) {
         room_id = jsonData["room_id"].stringValue
+        room_src = jsonData["room_src"].stringValue
         vertical_src = jsonData["vertical_src"].stringValue
+        room_name = jsonData["room_name"].stringValue
+        avatar_small = jsonData["avatar_small"].stringValue
     }
     static func modelArray(jsonArray:[JSON]) -> [DataList] {
         
