@@ -18,7 +18,7 @@ class CollectionBaseCell: UICollectionViewCell {
                 return
             }
             name.text=item.room_name
-            sourceImage.kf.setImage(with: URL(string: item.vertical_src ?? "lina"))
+            sourceImage.kf.setImage(with: URL(string: item.vertical_src ?? ""),placeholder: UIImage(named: "dota"))
         }
     }
 }

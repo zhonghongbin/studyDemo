@@ -16,6 +16,7 @@ private let kPrettyItemH : CGFloat = kItemW * 4 / 3
 private let kHeaderH : CGFloat = 50
 
 private let kCycleH :CGFloat = kScreenW * 3/8
+private let kGameH :CGFloat = 90
 
 private let kNormalID  = "kNormalID"
 private let kPrettyID  = "kPrettyID"
@@ -25,8 +26,13 @@ class RecommendViewController: UIViewController {
     private lazy var recommendVM : RecommendViewModel = RecommendViewModel()
     private lazy var recommecdCV :RecommendCycleView = {
         let cycleView = RecommendCycleView.recommendCycleView()
-        cycleView.frame = CGRect(x: 0, y: -kCycleH, width: kScreenW, height: kCycleH)
+        cycleView.frame = CGRect(x: 0, y: -(kCycleH+kGameH), width: kScreenW, height: kCycleH)
         return cycleView
+    }()
+    private lazy var gameView : RecommendGameView = {
+        let gameView = RecommendGameView.gameView()
+        gameView.frame = CGRect(x: 0, y: -kGameH, width: kScreenW, height: kGameH)
+        return gameView
     }()
     private lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -64,11 +70,15 @@ extension RecommendViewController{
         //添加轮播view
         collectionView.addSubview(recommecdCV)
         //设置collectionview内边距
-        collectionView.contentInset = UIEdgeInsets(top: kCycleH, left: 0, bottom: 0, right: 0)
+        collectionView.addSubview(gameView)
+
+        collectionView.contentInset = UIEdgeInsets(top: kCycleH + kGameH, left: 0, bottom: 0, right: 0)
     }
     private func getHttp(){
         recommendVM.requestData(){
             self.collectionView.reloadData()
+            
+            self.gameView.totalData = self.recommendVM.model
         }
         recommendVM.requestCycleData {
             self.recommecdCV.cycleModel = self.recommendVM.cycleModel

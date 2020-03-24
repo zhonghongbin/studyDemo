@@ -24,7 +24,9 @@ struct DetailData {
     
     var room_list: [DataList]?
     
-    
+    init() {
+        
+    }
     init(jsonData:JSON) {
         tag_name = jsonData["tag_name"].stringValue
         icon_url = jsonData["icon_url"].stringValue

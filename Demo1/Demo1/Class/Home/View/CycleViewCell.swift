@@ -13,7 +13,7 @@ class CycleViewCell: UICollectionViewCell {
     @IBOutlet weak var cycleImage: UIImageView!
     var data : Data?{
         didSet{
-            cycleImage.kf.setImage(with: URL(string: data?.pic_url ?? "dota"))
+            cycleImage.kf.setImage(with: URL(string: data?.pic_url ?? ""),placeholder: UIImage(named: "dota"))
         }
     }
 }
