@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let kGameID = "kGameID"
+private let kReGameID = "kReGameID"
 class RecommendGameView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     var totalData : AnchorModel?{
@@ -26,7 +26,7 @@ class RecommendGameView: UIView {
         autoresizingMask = .init()
         //注册cell
         
-        collectionView.register(UINib(nibName: "GameCell", bundle: nil), forCellWithReuseIdentifier: kGameID)
+        collectionView.register(UINib(nibName: "GameCell", bundle: nil), forCellWithReuseIdentifier: kReGameID)
     }
 }
 extension RecommendGameView{
@@ -41,7 +41,7 @@ extension RecommendGameView : UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kGameID, for: indexPath) as! GameCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kReGameID, for: indexPath) as! GameCell
         cell.gameData = totalData?.data?[indexPath.item]
         return cell
     }

@@ -26,7 +26,8 @@ class HomeViewController: UIViewController {
         //确认所有子控制器
         var childVcs = [UIViewController]()
         childVcs.append(RecommendViewController())
-        for _ in 0..<4{
+        childVcs.append(GameViewController())
+        for _ in 0..<2{
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
             childVcs.append(vc)
@@ -63,10 +64,10 @@ extension HomeViewController{
         btn.setImage(UIImage(named: "logo"), for: .normal)
         btn.imageView?.contentMode = .scaleAspectFit
         //设置内边距
-        btn.contentEdgeInsets = UIEdgeInsets(top: -10, left: -40, bottom: 10, right: 0)
+        btn.contentEdgeInsets = UIEdgeInsets(top: 5, left: -40, bottom: 5, right: 0)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
         
-        let historyItem = UIBarButtonItem(imageName: "history", leftPadding: 40, rightPadding: 0)
+        let historyItem = UIBarButtonItem(imageName: "history", leftPadding: 120, rightPadding: 0)
         
         let searchItem = UIBarButtonItem(imageName: "search", leftPadding: -60, rightPadding: 20)
         
