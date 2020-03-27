@@ -48,6 +48,12 @@
 		424F01A1241F4CD80051A682 /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F019F241F4CD80051A682 /* PageTitleView.swift */; };
 		424F01A3241F4D020051A682 /* PageContentVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F01A2241F4D020051A682 /* PageContentVIew.swift */; };
 		424F01A7241F52700051A682 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F01A6241F52700051A682 /* UIColorExtension.swift */; };
+		424F6CA9242DDB6A0073D375 /* FunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F6CA8242DDB6A0073D375 /* FunViewController.swift */; };
+		424F6CAB242DDC840073D375 /* FunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F6CAA242DDC840073D375 /* FunViewModel.swift */; };
+		424F6CAE242DDFDD0073D375 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F6CAD242DDFDD0073D375 /* BaseViewModel.swift */; };
+		424F6CB2242DEC680073D375 /* BaseAnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F6CB1242DEC680073D375 /* BaseAnchorViewController.swift */; };
+		424F6CB4242DFF120073D375 /* FunMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F6CB3242DFF120073D375 /* FunMenuView.swift */; };
+		424F6CB6242DFF240073D375 /* FunMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424F6CB5242DFF240073D375 /* FunMenuView.xib */; };
 		427B58BC2424B95D00DF950F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B58BB2424B95D00DF950F /* DateExtension.swift */; };
 		427B58BE2424BE2000DF950F /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B58BD2424BE2000DF950F /* AnchorModel.swift */; };
 		54B1888889803FC4D7DED7B0 /* Pods_Demo1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5940CE8CACAD29D69145E3 /* Pods_Demo1UITests.framework */; };
@@ -171,6 +177,12 @@
 		424F019F241F4CD80051A682 /* PageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
 		424F01A2241F4D020051A682 /* PageContentVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentVIew.swift; sourceTree = "<group>"; };
 		424F01A6241F52700051A682 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		424F6CA8242DDB6A0073D375 /* FunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunViewController.swift; sourceTree = "<group>"; };
+		424F6CAA242DDC840073D375 /* FunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunViewModel.swift; sourceTree = "<group>"; };
+		424F6CAD242DDFDD0073D375 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		424F6CB1242DEC680073D375 /* BaseAnchorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAnchorViewController.swift; sourceTree = "<group>"; };
+		424F6CB3242DFF120073D375 /* FunMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunMenuView.swift; sourceTree = "<group>"; };
+		424F6CB5242DFF240073D375 /* FunMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FunMenuView.xib; sourceTree = "<group>"; };
 		427B58BB2424B95D00DF950F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		427B58BD2424BE2000DF950F /* AnchorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorModel.swift; sourceTree = "<group>"; };
 		66BE6E49A1CB8C988855F87F /* Pods-Demo1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo1/Pods-Demo1.release.xcconfig"; sourceTree = "<group>"; };
@@ -359,6 +371,7 @@
 		4231CF5B241A1D4900899525 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				424F6CAC242DDFCC0073D375 /* ViewModel */,
 				424F01A0241F4CD80051A682 /* Model */,
 				424F019E241F4CD80051A682 /* View */,
 				4231CF5C241A1E2D00899525 /* Controller */,
@@ -371,6 +384,7 @@
 			children = (
 				4231CF2F241A1BCF00899525 /* Main.storyboard */,
 				4231CF78241A2B2200899525 /* MainViewController.swift */,
+				424F6CB1242DEC680073D375 /* BaseAnchorViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -421,6 +435,7 @@
 				4202DDB7241B641300BB57BC /* HomeViewController.swift */,
 				424515C52420BEAA00388C89 /* RecommendViewController.swift */,
 				4246A0BD242C7DCD00397205 /* GameViewController.swift */,
+				424F6CA8242DDB6A0073D375 /* FunViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -454,6 +469,8 @@
 				423FC51A242A07AB00469401 /* GameCell.xib */,
 				4246A0C1242C913400397205 /* GameHeaderView.swift */,
 				4246A0C3242C916600397205 /* GameHeaderView.xib */,
+				424F6CB3242DFF120073D375 /* FunMenuView.swift */,
+				424F6CB5242DFF240073D375 /* FunMenuView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -470,6 +487,7 @@
 			children = (
 				4244AB942424AF1F0040D905 /* RecommendViewModel.swift */,
 				4246A0BF242C846600397205 /* GameViewModel.swift */,
+				424F6CAA242DDC840073D375 /* FunViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -495,6 +513,14 @@
 				4243202F2428B3C400DF1AB2 /* CycleModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		424F6CAC242DDFCC0073D375 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				424F6CAD242DDFDD0073D375 /* BaseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9F10804FD4A364D745096383 /* Frameworks */ = {
@@ -687,6 +713,7 @@
 				42404A6F24221E64003BEA36 /* CollectionHeaderView.xib in Resources */,
 				42404A7424221F29003BEA36 /* CollectionViewNormalCell.xib in Resources */,
 				4231CF67241A283100899525 /* My.storyboard in Resources */,
+				424F6CB6242DFF240073D375 /* FunMenuView.xib in Resources */,
 				4243202E24289E2700DF1AB2 /* RecommendCycleView.xib in Resources */,
 				423F1AC42423491600F57E95 /* CollectionPrettyCell.xib in Resources */,
 				424320382428BA7B00DF1AB2 /* CycleViewCell.xib in Resources */,
@@ -915,9 +942,12 @@
 				4246A0BE242C7DCD00397205 /* GameViewController.swift in Sources */,
 				4231CF79241A2B2200899525 /* MainViewController.swift in Sources */,
 				424F01A3241F4D020051A682 /* PageContentVIew.swift in Sources */,
+				424F6CB4242DFF120073D375 /* FunMenuView.swift in Sources */,
 				4231CF2A241A1BCF00899525 /* AppDelegate.swift in Sources */,
 				42404A7324221F29003BEA36 /* CollectionViewNormalCell.swift in Sources */,
+				424F6CAB242DDC840073D375 /* FunViewModel.swift in Sources */,
 				424320302428B3C400DF1AB2 /* CycleModel.swift in Sources */,
+				424F6CB2242DEC680073D375 /* BaseAnchorViewController.swift in Sources */,
 				424F01A7241F52700051A682 /* UIColorExtension.swift in Sources */,
 				4202DDB8241B641300BB57BC /* HomeViewController.swift in Sources */,
 				427B58BC2424B95D00DF950F /* DateExtension.swift in Sources */,
@@ -929,7 +959,9 @@
 				4202DDC0241B88BC00BB57BC /* Common.swift in Sources */,
 				4244AB952424AF1F0040D905 /* RecommendViewModel.swift in Sources */,
 				4246A0C2242C913400397205 /* GameHeaderView.swift in Sources */,
+				424F6CAE242DDFDD0073D375 /* BaseViewModel.swift in Sources */,
 				423FC51B242A07AB00469401 /* GameCell.swift in Sources */,
+				424F6CA9242DDB6A0073D375 /* FunViewController.swift in Sources */,
 				424515C62420BEAA00388C89 /* RecommendViewController.swift in Sources */,
 				424320372428BA7B00DF1AB2 /* CycleViewCell.swift in Sources */,
 				427B58BE2424BE2000DF950F /* AnchorModel.swift in Sources */,

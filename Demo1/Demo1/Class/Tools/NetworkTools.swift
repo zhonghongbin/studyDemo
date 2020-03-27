@@ -13,7 +13,7 @@ enum MethodType{
     case GET
 }
 class NetworkTools {
-    class func requestData(type:MethodType ,url:String,parameters:[String: String]? = nil,finshCallback : @escaping(_ result : Any) ->()) {
+    class func requestData(type:MethodType ,url:String,parameters:[String: Any]? = nil,finshCallback : @escaping(_ result : Any) ->()) {
         let method = type == .GET ? HTTPMethod.get : HTTPMethod.post
         Alamofire.request(url, method: method, parameters: parameters).responseJSON{(reponse) in
             guard let result = reponse.result.value else{
