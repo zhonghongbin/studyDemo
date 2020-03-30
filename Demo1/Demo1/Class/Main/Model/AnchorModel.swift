@@ -11,6 +11,9 @@ import SwiftyJSON
 struct AnchorModel {
     var error : Int = 0
     var data : [DetailData]?
+    init() {
+        
+    }
     init(jsonData:JSON) {
         error = jsonData["error"].intValue
         data = DetailData.modelArray(jsonArray: jsonData["data"].arrayValue)
@@ -49,6 +52,8 @@ struct DataList {
     var vertical_src:String?
     var room_name:String?
     var avatar_small : String?
+    var isVertical : Int?
+    
     
     init(jsonData:JSON) {
         room_id = jsonData["room_id"].stringValue
@@ -56,6 +61,7 @@ struct DataList {
         vertical_src = jsonData["vertical_src"].stringValue
         room_name = jsonData["room_name"].stringValue
         avatar_small = jsonData["avatar_small"].stringValue
+        isVertical = jsonData["isVertical"].intValue
     }
     static func modelArray(jsonArray:[JSON]) -> [DataList] {
         

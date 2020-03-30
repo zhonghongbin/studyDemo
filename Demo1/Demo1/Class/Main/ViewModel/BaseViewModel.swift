@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 class BaseViewModel {
-    var model:AnchorModel?
+    var model:AnchorModel = AnchorModel()
 }
 extension BaseViewModel{
     func requestData (url: String ,parameters : [String:Any]?=nil,finishCallback : @escaping()->()) {

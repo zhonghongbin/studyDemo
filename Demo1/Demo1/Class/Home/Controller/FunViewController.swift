@@ -17,7 +17,6 @@ class FunViewController: BaseAnchorViewController {
     private lazy var funMenuV : FunMenuView = {
         let menuView = FunMenuView.funMenuView()
         menuView.frame = CGRect(x: 0, y: -kMenuH, width: kScreenW, height: kMenuH)
-        menuView.backgroundColor = UIColor.green
         return menuView
     }()
 }
@@ -33,6 +32,7 @@ extension FunViewController{
         //不同数据请求加载数据
         funVM.loadData {
             self.collectionView.reloadData()
+            self.funMenuV.model = self.funVM.model
         }
     }
 }

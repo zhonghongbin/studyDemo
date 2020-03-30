@@ -61,7 +61,7 @@ extension RecommendViewController : UICollectionViewDelegateFlowLayout{
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 1{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyID, for: indexPath) as! CollectionPrettyCell
-            cell.item = recommendVM.model?.data?[indexPath.section].room_list?[indexPath.item]
+            cell.item = recommendVM.model.data?[indexPath.section].room_list?[indexPath.item]
             return cell
         }else{
             return super.collectionView(collectionView, cellForItemAt: indexPath)
