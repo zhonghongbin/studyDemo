@@ -54,6 +54,7 @@ extension RecommendViewController{
         recommendVM.requestCycleData {
             self.recommecdCV.cycleModel = self.recommendVM.cycleModel
         }
+        self.loadDataFinish()
     }
 }
 //拓展协议，实现不同item大小的流水布局

@@ -25,7 +25,7 @@ private let kHeaderH : CGFloat = 50
 private let kNormalID  = "kNormalID"
 let kPrettyID  = "kPrettyID"
 private let kHeaderID  = "kHeaderID"
-class BaseAnchorViewController : UIViewController {
+class BaseAnchorViewController : BaseViewController {
     var baseVM : BaseViewModel?
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -57,8 +57,13 @@ class BaseAnchorViewController : UIViewController {
     }
 }
 extension BaseAnchorViewController{
-    @objc func setupUI(){
+    override func setupUI(){
+        //给父布局view赋值
+        contentView = collectionView
         view.addSubview(collectionView)
+        //后执行super不然父布局无contentview
+        super.setupUI()
+
     }
     @objc func getHttp(){
     }

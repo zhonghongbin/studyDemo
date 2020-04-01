@@ -25,6 +25,7 @@ extension PlayViewController{
         //不同数据请求加载数据
         playVM.loadData {
             self.collectionView.reloadData()
+            self.loadDataFinish()
         }
     }
 }

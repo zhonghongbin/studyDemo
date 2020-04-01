@@ -17,7 +17,7 @@ private let kGameHeaderID = "kGameHeaderID"
 //游戏列表高度
 private let kGameH :CGFloat = 90
 
-class GameViewController: UIViewController {
+class GameViewController: BaseViewController {
     //由于GameViewModel下接口请求报错暂用RecommendViewModel请求数据替代
     private lazy var gameVM :RecommendViewModel = RecommendViewModel()
     //顶部headerview
@@ -58,7 +58,8 @@ class GameViewController: UIViewController {
 
 }
 extension GameViewController{
-    fileprivate func setupUI(){
+    override func setupUI(){
+        contentView = collectionView
         //添加collectionView
         view.addSubview(collectionView)
         //添加顶部header
@@ -67,12 +68,13 @@ extension GameViewController{
         //添加collectionView内边距，用来显示顶部游戏列表
         collectionView.contentInset = UIEdgeInsets(top: kAllHeaderH
             + kGameH, left: 0, bottom: 0, right: 0)
-
+        super.setupUI()
     }
     private func getHttp(){
         gameVM.loadData {
             self.collectionView.reloadData()
             self.gameView.totalData = self.gameVM.model
+            self.loadDataFinish()
         }
     }
 }

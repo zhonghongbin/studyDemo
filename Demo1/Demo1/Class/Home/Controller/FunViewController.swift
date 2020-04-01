@@ -33,6 +33,7 @@ extension FunViewController{
         funVM.loadData {
             self.collectionView.reloadData()
             self.funMenuV.model = self.funVM.model
+            self.loadDataFinish()
         }
     }
 }
