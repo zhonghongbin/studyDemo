@@ -45,6 +45,7 @@
 		4246A0C0242C846600397205 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246A0BF242C846600397205 /* GameViewModel.swift */; };
 		4246A0C2242C913400397205 /* GameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246A0C1242C913400397205 /* GameHeaderView.swift */; };
 		4246A0C4242C916600397205 /* GameHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4246A0C3242C916600397205 /* GameHeaderView.xib */; };
+		4248D4A42435F36300100030 /* RoomViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4248D4A32435F36300100030 /* RoomViewController.storyboard */; };
 		42491D102433208500433600 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42491D0F2433208500433600 /* BaseViewController.swift */; };
 		42491D122433502A00433600 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42491D112433502A00433600 /* CustomNavigationController.swift */; };
 		424AB75F2431DC1900900BC6 /* FunMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424AB75D2431DC1900900BC6 /* FunMenuCell.swift */; };
@@ -182,6 +183,7 @@
 		4246A0BF242C846600397205 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		4246A0C1242C913400397205 /* GameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHeaderView.swift; sourceTree = "<group>"; };
 		4246A0C3242C916600397205 /* GameHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameHeaderView.xib; sourceTree = "<group>"; };
+		4248D4A32435F36300100030 /* RoomViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomViewController.storyboard; sourceTree = "<group>"; };
 		42491D0F2433208500433600 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		42491D112433502A00433600 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		424AB75D2431DC1900900BC6 /* FunMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunMenuCell.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 			children = (
 				424AB7702431F62100900BC6 /* RoomShowViewController.swift */,
 				424AB7722431F62C00900BC6 /* RoomViewController.swift */,
+				4248D4A32435F36300100030 /* RoomViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				4243202E24289E2700DF1AB2 /* RecommendCycleView.xib in Resources */,
 				423F1AC42423491600F57E95 /* CollectionPrettyCell.xib in Resources */,
 				424320382428BA7B00DF1AB2 /* CycleViewCell.xib in Resources */,
+				4248D4A42435F36300100030 /* RoomViewController.storyboard in Resources */,
 				4231CF6E241A28D100899525 /* Home.storyboard in Resources */,
 				423FC5142429F75E00469401 /* RecommendGameView.xib in Resources */,
 				4202DDB6241B63A500BB57BC /* Live.storyboard in Resources */,

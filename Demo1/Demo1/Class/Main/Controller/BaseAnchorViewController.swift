@@ -122,8 +122,13 @@ extension BaseAnchorViewController : UICollectionViewDelegate{
         present(showVc, animated: true, completion: nil)
     }
     private func pushRoom(){
+        //使用storyboard方式加载controller
+        let iHomeStory:UIStoryboard = UIStoryboard(name: "RoomViewController", bundle: nil)
+        //storyboard中记得设置storyboard ID
+        let iFirstVC = iHomeStory.instantiateViewController(withIdentifier: "Room") as! RoomViewController
+        //直接使用controller
         let pushVc = RoomViewController()
-        navigationController?.pushViewController(pushVc, animated: true)
+        navigationController?.pushViewController(iFirstVC, animated: true)
     }
 }
 
