@@ -48,6 +48,7 @@
 		4248D4A42435F36300100030 /* RoomViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4248D4A32435F36300100030 /* RoomViewController.storyboard */; };
 		42491D102433208500433600 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42491D0F2433208500433600 /* BaseViewController.swift */; };
 		42491D122433502A00433600 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42491D112433502A00433600 /* CustomNavigationController.swift */; };
+		4249BF5C243C5F8600658E35 /* AttentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249BF5B243C5F8600658E35 /* AttentionViewController.swift */; };
 		424AB75F2431DC1900900BC6 /* FunMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424AB75D2431DC1900900BC6 /* FunMenuCell.swift */; };
 		424AB7602431DC1900900BC6 /* FunMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424AB75E2431DC1900900BC6 /* FunMenuCell.xib */; };
 		424AB7642431EF2F00900BC6 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424AB7632431EF2F00900BC6 /* PlayViewController.swift */; };
@@ -186,6 +187,7 @@
 		4248D4A32435F36300100030 /* RoomViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomViewController.storyboard; sourceTree = "<group>"; };
 		42491D0F2433208500433600 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		42491D112433502A00433600 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		4249BF5B243C5F8600658E35 /* AttentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionViewController.swift; sourceTree = "<group>"; };
 		424AB75D2431DC1900900BC6 /* FunMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunMenuCell.swift; sourceTree = "<group>"; };
 		424AB75E2431DC1900900BC6 /* FunMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FunMenuCell.xib; sourceTree = "<group>"; };
 		424AB7632431EF2F00900BC6 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				4202DDAF241B630A00BB57BC /* Attention.storyboard */,
+				4249BF5B243C5F8600658E35 /* AttentionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1000,6 +1003,7 @@
 				423F1B4024237B7400F57E95 /* NetworkTools.swift in Sources */,
 				4202DDBC241B7B7500BB57BC /* UIBarItemExtension.swift in Sources */,
 				4246A0C0242C846600397205 /* GameViewModel.swift in Sources */,
+				4249BF5C243C5F8600658E35 /* AttentionViewController.swift in Sources */,
 				424AB7642431EF2F00900BC6 /* PlayViewController.swift in Sources */,
 				424F01A1241F4CD80051A682 /* PageTitleView.swift in Sources */,
 				4246A0BE242C7DCD00397205 /* GameViewController.swift in Sources */,

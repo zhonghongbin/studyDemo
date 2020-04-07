@@ -32,8 +32,16 @@
                                     <action selector="finish" destination="Brf-OS-ytO" eventType="touchUpInside" id="dfu-gH-C6W"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icy-CO-1hb">
+                                <rect key="frame" x="89" y="215" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="切换"/>
+                                <connections>
+                                    <action selector="changeSence" destination="Brf-OS-ytO" eventType="touchUpInside" id="fdc-tb-bGo"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vuc-xZ-l6I"/>
                     </view>
                 </viewController>
